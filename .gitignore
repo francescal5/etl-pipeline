@@ -1,0 +1,11 @@
+class_code
+data
+.env
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+.DS_Store
+__pycache__/
+.idea/
+learning_material
+notebooks
+main_first.py
