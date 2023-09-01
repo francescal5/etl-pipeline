@@ -26,10 +26,11 @@ def extract_transactional_data(dbname, host, port, user, password):
                ot.quantity,
                ot.price,
                ot.country,
+               ot.price * ot.quantity as total_order_value,
                   /*this is code to replace the missing values in description with unknown*/
                   case when sd.description is null then 'Unknown' 
                       else sd.description end as description,
-                /*this is code to fix the invoice_date's data type(the last one does not need a comma*/
+                /*this is code to fix the invoice_date's data type*/
                   cast(ot.invoice_date as datetime) as invoice_date
         from bootcamp.online_transactions as ot
         left join (select *
